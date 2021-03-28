@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace RealEstatePro.Controllers
 {
     public class HomeController : Controller
@@ -33,3 +34,16 @@ namespace RealEstatePro.Controllers
         }
     }
 }
+
+
+
+
+//The first commit before this commit  was uploaded after adding the Get file, and before uploading
+//i had added the following elements:
+// Project's Files : 
+// 1-index page with slider 
+// 2- details page  with slider 
+// 3- Models ( Advertisement , AdvPhoto , City , District, Neighborhood, Status , Type  )
+// 4- other classes (DataContext , DataInitializer , Database connection )
+// 5- Content bootstrap , Css , js 
+//This Commit is only for writing the project sections .
