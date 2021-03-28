@@ -32,6 +32,13 @@ namespace RealEstatePro.Controllers
             return View(adv);
 
         }
+        public PartialViewResult Slider()
+        {
+            var adv = db.Advertisements.ToList().Take(5);
+            var imgs = db.AdvPhotos.ToList();
+            ViewBag.imgs = imgs;
+            return PartialView(adv);
+        }
     }
 }
 
