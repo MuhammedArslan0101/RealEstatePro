@@ -16,6 +16,23 @@ namespace RealEstatePro.Controllers
         private UserManager<ApplicationUser> UserManager;
         private RoleManager<ApplicationRole> RoleManager;
 
+      public ActionResult UpdatePassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [Authorize]
+        public ActionResult UpdatePassword(UpdatePassword model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = UserManager.ChangePassword(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+                return View("Update");
+            }
+            return View(model);
+        }
+
+
         //Get 
         public ActionResult Profile()
         {
@@ -82,6 +99,7 @@ namespace RealEstatePro.Controllers
                 else
                 {
                     ModelState.AddModelError("LoginUserError", "Böyle bir kullanıcı bulamadı");
+                    return RedirectToAction("Login", "Account");
 
                 }
 

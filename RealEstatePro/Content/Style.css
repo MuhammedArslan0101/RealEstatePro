@@ -59,29 +59,3 @@
     }
 }
 
-#MyStyleOfBorder {
-  .div{
-    width: 200px;
-    height: 200px;
-    border: red 1px solid;
-    position: relative;
-}
-
-div:after {
-    content: '';
-    position: absolute;
-    border-right: 2px green solid;
-    height: 200px;
-    width: 200px;
-    transform: translateX(-50%);
-}
-
-div:before {
-    content: '';
-    position: absolute;
-    border-bottom: 2px green solid;
-    height: 200px;
-    width: 200px;
-    transform: translateY(-50%);
-}
-}

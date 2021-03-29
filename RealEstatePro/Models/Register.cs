@@ -22,6 +22,8 @@ namespace RealEstatePro.Models
         public string Email { get; set; }
         [Required]
         [DisplayName("KullanıcıAdı")]
+        [StringLength(15, MinimumLength = 3 , ErrorMessage = "Min 3 Max 15")]
+
         public string Username { get; set; }
         [Required]
         [DisplayName("Şifre")]

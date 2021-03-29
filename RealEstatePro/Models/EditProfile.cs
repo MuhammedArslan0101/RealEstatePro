@@ -13,6 +13,7 @@ namespace RealEstatePro.Models
         public string id { get; set; }
         [Required]
         [DisplayName("Adi")]
+        [StringLength(14, MinimumLength = 3, ErrorMessage = "Min 3 Max 14")]
         public string Name { get; set; }
         [Required]
         [DisplayName("Soyadi")]
@@ -23,6 +24,7 @@ namespace RealEstatePro.Models
         public string Email { get; set; }
         [Required]
         [DisplayName("KullanıcıAdi")]
+        [StringLength(14, MinimumLength = 3, ErrorMessage = "Min 3 Max 14")]
         public string Username { get; set; }
 
     }

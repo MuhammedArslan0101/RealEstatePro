@@ -171,6 +171,7 @@
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\Type.cs" />
+    <Compile Include="Models\UpdatePassword.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +199,7 @@
     <Content Include="Views\Shared\LoginPartial.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Account\Update.cshtml" />
+    <Content Include="Views\Account\UpdatePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
