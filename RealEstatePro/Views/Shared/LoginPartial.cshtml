@@ -1,0 +1,41 @@
+﻿
+
+    <ul class="nav navbar-nav navbar-right">
+        @if (Request.IsAuthenticated)
+        {
+            if (this.User.IsInRole("admin"))
+            {
+                <li><a href="/admin/Index" style="color:white">Admin Panel</a></li>
+                <li><a href="/Advertisement/Index" style="color:white">@User.Identity.Name</a></li>
+                <li><a href="/Account/Profile" style="color:white">Porfile</a></li>
+                <div class="nav navbar-nav navbar-right" style="padding:10px">
+                    <a href="/Account/LogOut" class="btn btn-danger"><i class="fa fa-remove"></i> Logout </a>
+                    <a href="/Advertisement/Create" class="btn btn-info"><i class="fa fa-bullhorn" aria-hidden="true"></i> Add Adv </a>
+                </div>
+            }
+            else
+            {
+                <li><a href="/Advertisement/Index" style="color:white">@User.Identity.Name</a></li>
+                <li><a href="/Account/Profile" style="color:white">Porfile</a></li>
+                <div class="nav navbar-nav navbar-right" style="padding:10px">
+
+                    <a href="/Account/LogOut" class="btn btn-danger"><i class="fa fa-remove"></i> Logout </a>
+                    <a href="/Advertisement/Create" class="btn btn-info"><i class="fa fa-bullhorn" aria-hidden="true"></i> Create Adv </a>
+                </div>
+            }
+
+        }
+
+        else
+        {
+       
+        <div class="nav navbar-nav navbar-right" style="padding:10px">
+            <a href="/Account/Register" class="btn btn-primary"><i class="fa fa-sign-in" aria-hidden="true"></i> Register </a>
+            <a href="/Account/Login"  class="btn btn-success"><i class="fa fa-users"></i> Login </a>
+
+            <a href="/Account/Login" class="btn btn-info"><i class="fa fa-bullhorn" aria-hidden="true"></i> Create adv </a>
+        </div>
+        }
+
+
+    </ul>
