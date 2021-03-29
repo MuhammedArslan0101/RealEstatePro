@@ -15,7 +15,7 @@ namespace RealEstatePro.App_Start
             app.UseCookieAuthentication(new Microsoft.Owin.Security.Cookies.CookieAuthenticationOptions()
             {
                 AuthenticationType = "ApplicationCookie",
-                LoginPath = new PathString("/account/login")
+                LoginPath = new PathString("/Account/Login")
                 });
            
 

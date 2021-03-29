@@ -164,6 +164,7 @@
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\DataInitializer.cs" />
     <Compile Include="Models\District.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Neighborhood.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\Status.cs" />
@@ -191,6 +192,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Slider.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

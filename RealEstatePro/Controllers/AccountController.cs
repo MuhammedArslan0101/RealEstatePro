@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
 using RealEstatePro.Identity;
 using RealEstatePro.Models;
 using System;
@@ -22,6 +23,49 @@ namespace RealEstatePro.Controllers
             RoleManager = new RoleManager<ApplicationRole>(roleStore);
 
 
+        }
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(Login model , string ReturnURl)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = UserManager.Find(model.Username, model.Password);
+                if(user!= null) 
+                {
+                    var authManager = HttpContext.GetOwinContext().Authentication;
+                    var identityclaims = UserManager.CreateIdentity(user, "ApplicationCookie");
+                    // Session Close or Not Rememeber me 
+                    var authProperties = new AuthenticationProperties();
+                    authProperties.IsPersistent = model.RememberMe;
+                    authManager.SignIn(authProperties,identityclaims);
+                    // Authentication of pages
+                    if(!String.IsNullOrEmpty(ReturnURl))
+                    {
+                        return Redirect(ReturnURl);
+                    }
+                    //after Login 
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("LoginUserError", "Böyle bir kullanıcı bulamadı");
+
+                }
+
+            }
+            return View(model);
+        }
+
+        public ActionResult LogOut()
+        {
+            
+            var authManager = HttpContext.GetOwinContext().Authentication;
+            authManager.SignOut();
+            return RedirectToAction("Index" ,"Home");
         }
 
         public ActionResult Register()
