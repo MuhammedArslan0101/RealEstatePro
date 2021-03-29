@@ -15,6 +15,35 @@ namespace RealEstatePro.Controllers
     {
         private UserManager<ApplicationUser> UserManager;
         private RoleManager<ApplicationRole> RoleManager;
+
+        //Get 
+        public ActionResult Profile()
+        {
+            var id = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
+            var user = UserManager.FindById(id);
+            var data = new EditProfile()
+            {
+            id = user.Id,
+            Name=user.Name,
+            Surname=user.Surname,
+            Username=user.UserName,
+            Email=user.Email,
+            };
+            return View(data);
+        }
+        [HttpPost]
+        public ActionResult Profile( EditProfile model)
+        {
+            var user = UserManager.FindById(model.id);
+            user.Name = model.Name;
+            user.UserName = model.Username;
+            user.Surname = model.Surname;
+            user.Email = model.Email;
+            UserManager.Update(user);
+            return View("Update");
+
+        }
+
         public AccountController()
         {
             var userStore = new UserStore<ApplicationUser>(new IdentityDataContext());
