@@ -76,16 +76,26 @@
                         <li class="breadcrumb-item active" aria-current="page">Deep Details</li>
                     </ol>
                 </nav>
-                <table class="table">
-                    <tr>
-                        <td>
-                            @Html.DisplayNameFor(model => model.CityName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => model.CityName)
-                        </td>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"> @Html.DisplayNameFor(model => model.CityId)</th>
+                            <th scope="col">  @Html.DisplayNameFor(model => model.CityName) </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => model.CityId)
+                            </td>
 
-                    </tr>
+                            <td>
+                                @Html.DisplayFor(model => model.CityName)
+                            </td>
+
+                        </tr>
+                    </tbody>
+                 
 
 
                 </table>

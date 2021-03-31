@@ -79,26 +79,30 @@
                         <li class="breadcrumb-item active" aria-current="page">Cities List</li>
                     </ol>
                 </nav>
-                <table class="table">
-                    <tr>
+                <table class="table table-striped" >
+                    <tr >
                         <th>
                             Name Of City
                         </th>
-                        <th></th>
+                       
+                        <th class="text-info">
+                            Operations
+                        </th>
                     </tr>
 
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CityName)
-                            </td>
-                            <td>
-                                <a class="btn btn-primary" href="@Url.Action("Edit", new { id = item.CityId })"><i class="fa fa-edit"></i> Edit</a>
-                                <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.CityId })">  <i class="fa fa-trash"></i> Delete</a>
-                                <a class="btn btn-success" href="@Url.Action("Details", new { id = item.CityId })"> <i class="fa fa-info-circle"></i> Details</a>
-                            </td>
-                        </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CityName)
+                    </td>
+                  
+                    <td>
+                        <a class="btn btn-primary" href="@Url.Action("Edit", new { id = item.CityId })"><i class="fa fa-edit"></i> Edit</a>
+                        <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.CityId })">  <i class="fa fa-trash"></i> Delete</a>
+                        <a class="btn btn-success" href="@Url.Action("Details", new { id = item.CityId })"> <i class="fa fa-info-circle"></i> Details</a>
+                    </td>
+                </tr>
                     }
 
                 </table>
