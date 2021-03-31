@@ -51,7 +51,7 @@
                     <tr><td><strong>Oda sayisi</strong></td><td>@Model.NumOfRoom</td></tr>
                     <tr><td><strong>Kat</strong></td><td>@Model.Floor</td></tr>
                     <tr><td><strong>Adres</strong></td><td>@Model.Addres</td></tr>
-                    <tr><td><strong>Şehir</strong></td><td>@Model.Neighborhood.District.City.CityName</td></tr>
+                    <tr><td><strong>Şehir</strong></td><td>@Model.Neighborhood.District.City.CityName <a class="btn btn-success" href="@Url.Action("DetailsOfCity","Home", new { id = Model.CityId })"> <i class="fa fa-info-circle"></i> Details</a></td>  </tr>
                     <tr><td><strong>Mahalla</strong></td><td>@Model.Neighborhood.NeighborhoodName</td></tr>
                     <tr><td><strong>Semt</strong></td><td>@Model.Neighborhood.District.DistrictName</td></tr>
                     <tr><td><strong>Özelikler</strong></td><td>@Model.Feature</td></tr>

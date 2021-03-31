@@ -24,6 +24,12 @@ namespace RealEstatePro.Controllers
             ModelState.Clear();
             return View(adv.ToList());
         }
+   
+        public ActionResult DetailsOfCity(int id)
+        {
+            var doc = db.Cities.Where(i => i.CityId == id).FirstOrDefault();           
+            return View(doc);
+        }
         public ActionResult Details(int id)
         {
             var adv = db.Advertisements.Where(i => i.AdvId == id).Include(m => m.Neighborhood).Include(e => e.Type).FirstOrDefault();
