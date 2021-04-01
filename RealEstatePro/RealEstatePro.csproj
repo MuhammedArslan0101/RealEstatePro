@@ -154,6 +154,7 @@
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\DistrictController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NeighborhoodController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -213,6 +214,11 @@
     <Content Include="Views\District\Details.cshtml" />
     <Content Include="Views\District\Edit.cshtml" />
     <Content Include="Views\District\Index.cshtml" />
+    <Content Include="Views\Neighborhood\Create.cshtml" />
+    <Content Include="Views\Neighborhood\Delete.cshtml" />
+    <Content Include="Views\Neighborhood\Details.cshtml" />
+    <Content Include="Views\Neighborhood\Edit.cshtml" />
+    <Content Include="Views\Neighborhood\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
