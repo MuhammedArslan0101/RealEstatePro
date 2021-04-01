@@ -1,9 +1,10 @@
-﻿@model IEnumerable<RealEstatePro.Models.City>
+﻿@model RealEstatePro.Models.District
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="container">
 
     <div class="row">
@@ -76,37 +77,47 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"> <a href="/Admin/Index"> Admin Panel</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Cities List</li>
+                        <li class="breadcrumb-item"> <a href="/District/Index"> District List</a></li>
+
+                        <li class="breadcrumb-item active" aria-current="page">Edit</li>
                     </ol>
                 </nav>
-                <a class="btn btn-primary btn-block" href="@Url.Action("Create")"> Add City</a>
-                <table class="table table-striped" >
-                    <tr >
-                        <th>
-                            Name Of City
-                        </th>
-                       
-                        <th class="text-info">
-                            Operations
-                        </th>
-                    </tr>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
-                    @foreach (var item in Model)
-                    {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CityName)
-                    </td>
-                  
-                    <td>
-                        <a class="btn btn-primary" href="@Url.Action("Edit", new { id = item.CityId })"><i class="fa fa-edit"></i> Edit</a>
-                        <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.CityId })">  <i class="fa fa-trash"></i> Delete</a>
-                        <a class="btn btn-success" href="@Url.Action("Details", new { id = item.CityId })"> <i class="fa fa-info-circle"></i> Details</a>
-                    </td>
-                </tr>
-                    }
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.DistrictId)
 
-                </table>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DistrictName,"District Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.DistrictName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DistrictName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CityId, "City Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.DropDownList("CityId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-success" />
+
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
+
+                        @Html.ActionLink("Go To City List","Index" , "City", null , new { @class = "btn btn-warning" })
+
+                    </div>
+                </div>
+            </div>
+                }
 
             </div>
 

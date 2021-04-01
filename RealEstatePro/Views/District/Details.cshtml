@@ -1,9 +1,10 @@
-﻿@model IEnumerable<RealEstatePro.Models.City>
+﻿@model RealEstatePro.Models.District
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="container">
 
     <div class="row">
@@ -75,38 +76,37 @@
 
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"> <a href="/Admin/Index"> Admin Panel</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Cities List</li>
+                        <li class="breadcrumb-item"> <a href="/Admin/Index"> Admin Panel</a></li>,,
+                        <li class="breadcrumb-item"> <a href="/District/Index"> Districts List</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Districts Details</li>
                     </ol>
                 </nav>
-                <a class="btn btn-primary btn-block" href="@Url.Action("Create")"> Add City</a>
-                <table class="table table-striped" >
-                    <tr >
-                        <th>
-                            Name Of City
-                        </th>
-                       
-                        <th class="text-info">
-                            Operations
-                        </th>
-                    </tr>
 
-                    @foreach (var item in Model)
-                    {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CityName)
-                    </td>
-                  
-                    <td>
-                        <a class="btn btn-primary" href="@Url.Action("Edit", new { id = item.CityId })"><i class="fa fa-edit"></i> Edit</a>
-                        <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.CityId })">  <i class="fa fa-trash"></i> Delete</a>
-                        <a class="btn btn-success" href="@Url.Action("Details", new { id = item.CityId })"> <i class="fa fa-info-circle"></i> Details</a>
-                    </td>
-                </tr>
-                    }
+                <hr />
 
-                </table>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.City.CityName)*@
+                        City Name :
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.City.CityName)
+                    </dd>
+                    <hr />
+                    <dt>
+                        @*@Html.DisplayNameFor(model => model.DistrictName)*@
+                        District Name : 
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DistrictName)
+                    </dd>
+
+                </dl>
+                <hr />
+                <a style="margin-left:50px; margin-bottom:10px;" class="btn btn-primary" href="@Url.Action("Edit", new { id = Model.DistrictId })">Edit</a>  ||
+                <a style="margin-bottom: 10px;" class="btn btn-danger" href="@Url.Action("Delete", new { id = Model.DistrictId })">Delete</a>
 
             </div>
 
@@ -115,5 +115,4 @@
     </div>
 
 </div>
-
 
