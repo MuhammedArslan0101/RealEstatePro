@@ -1,4 +1,12 @@
-﻿
+﻿/*hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 3px;
+} */
 
 .img-thumbnail {
     padding: .25rem;
@@ -22,7 +30,7 @@
     font-size: 0.9rem;
 }
 
-
+/*Start whatsapp CSS */
 .whatsapp_float {
     position: fixed;
     width: 60px;
@@ -55,4 +63,4 @@
         font-size: 22px;
     }
 }
-
+/*End Whatsapp CSS*/
