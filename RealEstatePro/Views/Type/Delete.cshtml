@@ -1,0 +1,123 @@
+﻿@model RealEstatePro.Models.Type
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+
+    <div class="row">
+        <!--Filtreleme-->
+        <div class="col-md-3">
+            <br />
+            <!--Filtreleme-->
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">En Az </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="En Az(fiyat)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">En Cok </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="En Cok(fiyat)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Şehir </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="Şehir">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Semt </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="Semt">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Mahalla </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="Mahalla">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Durum </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="Durum">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Tip </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="Tip">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="" class="col-sm-4 control-label"> </label>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Filitreleme</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <br />
+        <div class="col-md-9">
+            <div class="thumbnail" style="width:845px">
+
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"> <a href="/Admin/Index"> Admin Panel</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Delete City</li>
+                    </ol>
+                </nav>
+                <h3>Are you sure you want to delete this?</h3>
+                <hr />
+                <div>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Status.StatusName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Status.StatusName)
+                        </dd>
+                        <hr />
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TypeName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.TypeName)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div style="padding-left:30px; padding-bottom:30px;" class="form-actions no-color">
+                            <input type="submit" value="Delete" class="btn btn-danger" /> |
+                            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
+
+                        </div>
+                    }
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
