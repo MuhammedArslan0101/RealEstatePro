@@ -4,121 +4,156 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container">
 
-<h2>Index</h2>
+    <div class="row">
+        <!--Filtreleme-->
+        <div class="col-md-3">
+            <br />
+            <!--Filtreleme-->
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">En Az </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="En Az(fiyat)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">En Cok </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="En Cok(fiyat)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Şehir </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="Şehir">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Semt </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="Semt">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Mahalla </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="Mahalla">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Durum </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="Durum">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-4 control-label">Tip </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" palceholder="Tip">
+                    </div>
+                </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Neighborhood.NeighborhoodName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type.TypeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumOfRoom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumOfBath)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Credit)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Area)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Floor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Feature)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telephone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Addres)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CityId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DistrictId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StatusId)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Neighborhood.NeighborhoodName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type.TypeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumOfRoom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumOfBath)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Credit)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Area)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Floor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Feature)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telephone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Addres)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CityId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DistrictId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StatusId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AdvId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AdvId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AdvId })
-        </td>
-    </tr>
-}
+                <div class="form-group">
+                    <label for="" class="col-sm-4 control-label"> </label>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Filitreleme</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
-</table>
+
+
+
+        <br />
+        <div class="col-md-9">
+            <div class="thumbnail" style="width:845px">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"> <a href="/Home/Index"> Home </a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Advertisme List</li>
+                    </ol>
+                </nav>
+
+                <a class="btn btn-primary btn-block" href="@Url.Action("Create")"> Add AD</a>
+                <br/>
+                <table class="table table-striped">
+                 
+                    <tr>
+                        <th>
+                           Status 
+                        </th>
+                        <th>
+                           User Name
+                        </th>
+                       
+                        <th>
+                            City Name
+                        </th>
+                      
+                        <th>
+                            District Name
+                        </th>
+                        <th>
+                            Neghod Name 
+                        </th>
+                        <th>
+                            Type 
+                        </th>
+                        @*<th>
+                            Price
+                        </th>*@
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type.Status.StatusName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Neighborhood.District.City.CityName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Neighborhood.District.DistrictName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Neighborhood.NeighborhoodName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type.TypeName)
+                    </td>
+
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>*@
+
+
+
+                    <td>
+                        <form  class="btn btn-sm">
+                            <a class="btn btn-success" href="@Url.Action("Images", new { id = item.AdvId })"><i class="fa fa-edit"></i>Add İmg</a>
+                            <a class="btn btn-primary " href="@Url.Action("Edit", new { id = item.AdvId })"><i class="fa fa-edit"></i> Edit</a>
+                            <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.AdvId })">  <i class="fa fa-trash"></i> Delete</a>
+                            <a class="btn btn-success " href="@Url.Action("Details", new { id = item.AdvId })"> <i class="fa fa-info-circle"></i> Details</a>
+                        </form>
+                    </td>
+
+                </tr>
+                    }
+
+                </table>
+              
+
+            </div>
+        </div>
+    </div>
+
+</div>

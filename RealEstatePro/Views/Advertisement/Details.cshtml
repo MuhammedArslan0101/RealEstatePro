@@ -5,143 +5,192 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+    <div class="container">
 
-<div>
-    <h4>Advertisement</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Neighborhood.NeighborhoodName)
-        </dt>
+        <div class="row">
+            <!--Filtreleme-->
+            <div class="col-md-3">
+                <br />
+                <!--Filtreleme-->
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">En Az </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="En Az(fiyat)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">En Cok </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="En Cok(fiyat)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Şehir </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="Şehir">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Semt </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="Semt">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Mahalla </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="Mahalla">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Durum </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="Durum">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Tip </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="Tip">
+                        </div>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Neighborhood.NeighborhoodName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Type.TypeName)
-        </dt>
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label"> </label>
+                        <div class="col-sm-6">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Filitreleme</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Type.TypeName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+            <br />
+            <div class="col-md-9">
+                <div class="thumbnail" style="width:845px">
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NumOfRoom)
-        </dt>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"> <a href="/Admin/Index"> Admin Panel</a></li>,,
+                            <li class="breadcrumb-item"> <a href="/Advertisement/Index"> Adv List</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Adv Details</li>
+                        </ol>
+                    </nav>
 
-        <dd>
-            @Html.DisplayFor(model => model.NumOfRoom)
-        </dd>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Description :
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NumOfBath)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
+                        <hr />
+                        <dt>
+                            Price :
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NumOfBath)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Price)
+                        </dd>
+                        <hr />
+                        <dt>
+                            NumOfRoom :
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Credit)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.NumOfRoom)
+                        </dd>
+                        <hr />
+                        <dt>
+                            NumOfBath :
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Credit)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.NumOfBath)
+                        </dd>
+                        <hr />
+                        <dt>
+                            Credit :
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Area)
-        </dt>
+                        <dd>
+                            @if (Model.Credit == true)
+                            {
+                                <label class="labale label-success">Yes</label>
+                            }
+                            else
+                            {
+                                <label class="labale label-danger">No</label>
+                            }
+                        </dd>
+                        <hr />
+                        <dt>
+                            Area :
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Area)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Area)
+                        </dd>
+                        <hr />
+                        <dt>
+                            Floor :
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Floor)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Floor)
+                        </dd>
+                        <hr />
+                        <dt>
+                            Feature :
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Floor)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Feature)
+                        </dd>
+                        <hr />
+                        <dt>
+                            Telephone :
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Feature)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Telephone)
+                        </dd>
+                        <hr />
+                        <dt>
+                            Addres :
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Feature)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Addres)
+                        </dd>
+                        <hr />
+                        <dt>
+                            UserName :
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Telephone)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.UserName)
+                        </dd>
+                        <hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.Telephone)
-        </dd>
+                    </dl>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Addres)
-        </dt>
+                    <hr />
+                    <a style="margin-left:50px; margin-bottom:10px;" class="btn btn-primary" href="@Url.Action("Edit", new { id = Model.AdvId })">Edit</a>  ||
+                    <a style="margin-bottom: 10px;" class="btn btn-danger" href="@Url.Action("Delete", new { id = Model.AdvId })">Delete</a>
 
-        <dd>
-            @Html.DisplayFor(model => model.Addres)
-        </dd>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CityId)
-        </dt>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.CityId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DistrictId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DistrictId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StatusId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StatusId)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AdvId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
