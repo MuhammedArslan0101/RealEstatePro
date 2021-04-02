@@ -256,6 +256,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Views\Shared\NgbhdPartial.cshtml" />
     <Content Include="Views\Shared\TypePartial.cshtml" />
+    <Content Include="Views\Advertisement\Images.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

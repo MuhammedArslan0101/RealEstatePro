@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -23,6 +24,34 @@ namespace RealEstatePro.Controllers
             return View(advertisements.ToList());
         }
 
+        public ActionResult Images(int id)
+        {
+            var adv = db.Advertisements.Where(i => i.AdvId == id).ToList();
+            var rsml = db.AdvPhotos.Where(i => i.AdvId == id).ToList();
+
+            ViewBag.rsml = rsml;
+            ViewBag.adv = adv;
+
+            return View();
+
+
+        }
+        [HttpPost]
+        public ActionResult Images(int id , HttpPostedFileBase file)
+        {
+            string path = Path.Combine("/Content/images/", file.FileName);
+            file.SaveAs(Server.MapPath(path));
+            AdvPhoto rsm = new AdvPhoto();
+            // Resim bu Modelin
+            rsm.AdvPhotoName = file.FileName.ToString();
+            // ilişkilendirme 
+            rsm.AdvId = id;
+            db.AdvPhotos.Add(rsm);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+ 
+        }
         public List<City> CityGet()
         {
             List<City> cities = db.Cities.ToList();
