@@ -38,16 +38,16 @@
     <div class="row">
         @foreach (var item in ViewBag.rsml)
         {
-            <div class="col-md-4">
-                <div class="img-thumbnail">
-                    <img src="~/Content/images/@item.AdvPhotoName" height="250" width="250" />
-
-                </div>
-
+        <div class="col-md-4">
+            <div class="img-thumbnail">
+                <img src="~/Content/images/@item.AdvPhotoName" height="250" width="250" />
+               
+                    <a class="btn btn-danger" href="@Url.Action("Deleteimages", new { id = item.AdvPhotoId})">  <i class="fa fa-trash"></i> Delete</a>
+        
             </div>
-            <form class="btn btn-sm">
-                <a class="btn btn-danger" href="@Url.Action("Deleteimages", new { id = item.AdvPhotoId})">  <i class="fa fa-trash"></i> Delete</a>
-            </form>
+           
+        </div>
+            
         }
     </div>
  </div>
