@@ -132,8 +132,10 @@
     <div class="form-group">
         @Html.LabelFor(model => model.StatusId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.StatusId, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.StatusId, "", new { @class = "text-danger" })
+          @if (ViewBag.statuslist != null)
+          {
+              @Html.DropDownListFor( m=> m.StatusId , ViewBag.statuslist as SelectList , ("Select Status Plz ") , new { @class = "form-control" }) 
+          }
         </div>
     </div>
 
@@ -142,8 +144,8 @@
     <div class="form-group">
         @Html.LabelFor(model => model.TypeId, "TypeId", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("TypeId", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.TypeId, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(m => m.TypeId, new SelectList(""), "First Choice Status Name", new { @class = "form-control" })
+
         </div>
     </div>
 
@@ -193,6 +195,25 @@
                     debugger
                     $("#NeighborhoodId").empty();
                     $("#NeighborhoodId").append(response);
+                }
+            })
+        })
+    })
+</script>
+<!--Status is sub  of Type -->
+<script>
+    $(document).ready(function () {
+        $("#StatusId").change(function () {
+            var statusid = $(this).val();
+            debugger
+            $.ajax({
+                type: "Post",
+                url: "/Advertisement/typeGet?statusid=" + statusid,
+                contentType: "html",
+                success: function (response) {
+                    debugger
+                    $("#TypeId").empty();
+                    $("#TypeId").append(response);
                 }
             })
         })

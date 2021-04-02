@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using RealEstatePro.Models;
 using RealEstatePro.Models;
+using Type = RealEstatePro.Models.Type;
 
 namespace RealEstatePro.Controllers
 {
@@ -43,6 +44,20 @@ namespace RealEstatePro.Controllers
             return PartialView("NgbhdPartial");
         }
 
+        public List<Status> statusGet()
+        {
+            List<Status> statuses = db.Statuses.ToList();
+            return statuses;
+        }
+        public ActionResult typeGet(int statusid)
+        {
+            // because status sub table of Type 
+            List<Type> typelist = db.Types.Where(x => x.StatusId == statusid).ToList();
+            ViewBag.typelistesi = new SelectList(typelist, "TypeId", "TypeName");
+
+
+            return PartialView("TypePartial");
+        }
 
         // GET: Advertisement/Details/5
         public ActionResult Details(int? id)
@@ -65,8 +80,7 @@ namespace RealEstatePro.Controllers
             //for list city and district to create page
             ViewBag.citylist = new SelectList(CityGet(), "CityId", "CityName");
 
-            ViewBag.NeighborhoodId = new SelectList(db.Neighborhoods, "NeighborhoodId", "NeighborhoodName");
-            ViewBag.TypeId = new SelectList(db.Types, "TypeId", "TypeName");
+            ViewBag.statuslist = new SelectList(statusGet(), "StatusId", "StatusName");
             return View();
         }
 
@@ -76,6 +90,7 @@ namespace RealEstatePro.Controllers
         {
             if (ModelState.IsValid)
             {
+                advertisement.UserName = User.Identity.Name; 
                 db.Advertisements.Add(advertisement);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -83,8 +98,7 @@ namespace RealEstatePro.Controllers
             //for list city and district to create page
             ViewBag.citylist = new SelectList(CityGet(), "CityId", "CityName");
 
-            ViewBag.NeighborhoodId = new SelectList(db.Neighborhoods, "NeighborhoodId", "NeighborhoodName", advertisement.NeighborhoodId);
-            ViewBag.TypeId = new SelectList(db.Types, "TypeId", "TypeName", advertisement.TypeId);
+            ViewBag.statuslist = new SelectList(statusGet(), "StatusId", "StatusName");
             return View(advertisement);
         }
 
