@@ -257,6 +257,8 @@
     <Content Include="Views\Shared\NgbhdPartial.cshtml" />
     <Content Include="Views\Shared\TypePartial.cshtml" />
     <Content Include="Views\Advertisement\Images.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Shared\SearchPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

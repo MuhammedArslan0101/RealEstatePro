@@ -24,7 +24,21 @@ namespace RealEstatePro.Controllers
             ModelState.Clear();
             return View(adv.ToList());
         }
-   
+
+        public ActionResult Search(string s)
+        {
+            var imgs = db.AdvPhotos.ToList();
+            ViewBag.imgs = imgs;
+            var search = db.Advertisements.Include(m => m.Neighborhood).Include(e => e.Type);
+            if (!string.IsNullOrEmpty(s))
+            {
+                search = search.Where(i => i.Description.Contains(s) || i.Neighborhood.NeighborhoodName.Contains(s)
+                || i.Neighborhood.District.City.CityName.Contains(s));
+            }
+
+            return View(search.ToList());
+        }
+
         public ActionResult DetailsOfCity(int id)
         {
             var doc = db.Cities.Where(i => i.CityId == id).FirstOrDefault();           
