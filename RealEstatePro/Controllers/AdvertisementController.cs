@@ -20,7 +20,8 @@ namespace RealEstatePro.Controllers
         // GET: Advertisement
         public ActionResult Index()
         {
-            var advertisements = db.Advertisements.Include(a => a.Neighborhood).Include(a => a.Type);
+            var username = User.Identity.Name;
+            var advertisements = db.Advertisements.Where(i => i.UserName==username).Include(a => a.Neighborhood).Include(a => a.Type);
             return View(advertisements.ToList());
         }
 
