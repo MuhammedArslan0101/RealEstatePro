@@ -143,6 +143,10 @@ namespace RealEstatePro.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.citylist = new SelectList(CityGet(), "CityId", "CityName");
+            ViewBag.statuslist = new SelectList(statusGet(), "StatusId", "StatusName");
+
+            ViewBag.districtId = new SelectList(db.Districts, "DistrictId", "DistrictName", advertisement.DistrictId);
             ViewBag.NeighborhoodId = new SelectList(db.Neighborhoods, "NeighborhoodId", "NeighborhoodName", advertisement.NeighborhoodId);
             ViewBag.TypeId = new SelectList(db.Types, "TypeId", "TypeName", advertisement.TypeId);
             return View(advertisement);
@@ -159,8 +163,8 @@ namespace RealEstatePro.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.NeighborhoodId = new SelectList(db.Neighborhoods, "NeighborhoodId", "NeighborhoodName", advertisement.NeighborhoodId);
-            ViewBag.TypeId = new SelectList(db.Types, "TypeId", "TypeName", advertisement.TypeId);
+            ViewBag.citylist = new SelectList(CityGet(), "CityId", "CityName");
+            ViewBag.statuslist = new SelectList(statusGet(), "StatusId", "StatusName");
             return View(advertisement);
         }
 
