@@ -198,5 +198,25 @@ namespace RealEstatePro.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult Deleteimages(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            AdvPhoto advphoto = db.AdvPhotos.Find(id);
+            if (advphoto == null)
+            {
+                return HttpNotFound();
+            }
+
+            
+            db.AdvPhotos.Remove(advphoto);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+
     }
 }
