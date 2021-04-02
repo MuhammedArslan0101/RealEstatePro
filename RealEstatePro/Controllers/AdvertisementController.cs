@@ -35,6 +35,14 @@ namespace RealEstatePro.Controllers
             return PartialView ("DistrictPartial");
         }
 
+        public ActionResult NgbhdGet(int districtid)
+        {
+            List<Neighborhood> neighborhoodlist = db.Neighborhoods.Where(x => x.DistrictId == districtid).ToList();
+            ViewBag.nghbdlistesi = new SelectList(neighborhoodlist, "NeighborhoodId", "NeighborhoodName");
+         
+            return PartialView("NgbhdPartial");
+        }
+
 
         // GET: Advertisement/Details/5
         public ActionResult Details(int? id)
