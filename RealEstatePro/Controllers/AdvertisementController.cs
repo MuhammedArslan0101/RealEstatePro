@@ -39,18 +39,27 @@ namespace RealEstatePro.Controllers
         [HttpPost]
         public ActionResult Images(int id , HttpPostedFileBase file)
         {
-            string path = Path.Combine("/Content/images/", file.FileName);
-            file.SaveAs(Server.MapPath(path));
-            AdvPhoto rsm = new AdvPhoto();
-            // Resim bu Modelin
-            rsm.AdvPhotoName = file.FileName.ToString();
-            // ilişkilendirme 
-            rsm.AdvId = id;
-            db.AdvPhotos.Add(rsm);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if( file != null)
+            {
+                string path = Path.Combine("/Content/images/", file.FileName);
+                file.SaveAs(Server.MapPath(path));
+                AdvPhoto rsm = new AdvPhoto();
+                // Resim bu Modelin
+                rsm.AdvPhotoName = file.FileName.ToString();
+                // ilişkilendirme 
+                rsm.AdvId = id;
+                db.AdvPhotos.Add(rsm);
+                db.SaveChanges();
+                return RedirectToAction("Images");
+            }
+    
+                ViewBag.alert = "Please insert Photo.....";
+                return RedirectToAction("Index");
 
- 
+
+
+
+
         }
         public List<City> CityGet()
         {
