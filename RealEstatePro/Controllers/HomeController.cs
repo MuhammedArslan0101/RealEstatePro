@@ -25,6 +25,14 @@ namespace RealEstatePro.Controllers
             return View(adv.ToList());
         }
 
+        public ActionResult StatusList( int id)
+        {
+            var imgs = db.AdvPhotos.ToList();
+            ViewBag.imgs = imgs;
+            var adv = db.Advertisements.Where(i => i.StatusId == id).Include(m => m.Neighborhood).Include(e => e.Type);
+            return View(adv.ToList());
+        } 
+
         public ActionResult MenuFilter(int id)
         {
             var imgs = db.AdvPhotos.ToList();

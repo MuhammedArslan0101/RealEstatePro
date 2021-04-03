@@ -266,6 +266,8 @@
     <Content Include="Views\Type\StutsTip2.cshtml" />
     <Content Include="Views\Type\StatusName1.cshtml" />
     <Content Include="Views\Type\StatusName2.cshtml" />
+    <Content Include="Views\Status\Status.cshtml" />
+    <Content Include="Views\Home\StatusList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

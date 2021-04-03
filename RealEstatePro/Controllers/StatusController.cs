@@ -20,6 +20,12 @@ namespace RealEstatePro.Controllers
             return View(db.Statuses.ToList());
         }
 
+        public PartialViewResult Status()
+        {
+            var status = db.Statuses.ToList();
+            return PartialView(status);
+        }
+
         // GET: Status/Details/5
         public ActionResult Details(int? id)
         {

@@ -1,0 +1,6 @@
+﻿@model  IEnumerable<RealEstatePro.Models.Status>
+
+@foreach (var item in Model)
+{
+    <li><a href="/Home/StatusList/@item.StatusId" style="color:white">@item.StatusName</a></li>
+}
