@@ -23,62 +23,7 @@
 
     <div class="row">
         <!--Filtreleme-->
-        <div class="col-md-3">
-            <br />
-            <!--Filtreleme-->
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-4 control-label">En Az </label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" palceholder="En Az(fiyat)">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-4 control-label">En Cok </label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" palceholder="En Cok(fiyat)">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-4 control-label">Şehir </label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" palceholder="Şehir">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-4 control-label">Semt </label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" palceholder="Semt">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-4 control-label">Mahalla </label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" palceholder="Mahalla">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-4 control-label">Durum </label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" palceholder="Durum">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-4 control-label">Tip </label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" palceholder="Tip">
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="" class="col-sm-4 control-label"> </label>
-                    <div class="col-sm-6">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Filitreleme</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+        @Html.Action("PartialFilter", "Home")
 
 
 
@@ -97,7 +42,7 @@
                 <a class="btn btn-primary btn-block" href="@Url.Action("Create")"> Add Neighborhood</a>
                 <table class="table table-striped">
                     <tr>
-                       
+
                         <th>
                             @*@Html.DisplayNameFor(model => model.NeighborhoodName)*@
                             Neighborhood Name
@@ -120,26 +65,26 @@
 
                     @foreach (var item in Model)
                     {
-                <tr>
+                        <tr>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NeighborhoodName)
-                    </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NeighborhoodName)
+                            </td>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.District.DistrictName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.District.City.CityName)
-                    </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.District.DistrictName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.District.City.CityName)
+                            </td>
 
 
-                    <td>
-                        <a class="btn btn-primary" href="@Url.Action("Edit", new { id = item.NeighborhoodId })"><i class="fa fa-edit"></i> Edit</a>
-                        <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.NeighborhoodId })">  <i class="fa fa-trash"></i> Delete</a>
-                        <a class="btn btn-success" href="@Url.Action("Details", new { id = item.NeighborhoodId })"> <i class="fa fa-info-circle"></i> Details</a>
-                    </td>
-                </tr>
+                            <td>
+                                <a class="btn btn-primary" href="@Url.Action("Edit", new { id = item.NeighborhoodId })"><i class="fa fa-edit"></i> Edit</a>
+                                <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.NeighborhoodId })">  <i class="fa fa-trash"></i> Delete</a>
+                                <a class="btn btn-success" href="@Url.Action("Details", new { id = item.NeighborhoodId })"> <i class="fa fa-info-circle"></i> Details</a>
+                            </td>
+                        </tr>
                     }
 
                 </table>
