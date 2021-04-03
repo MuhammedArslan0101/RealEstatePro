@@ -134,6 +134,15 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\images\brown.png" />
+    <Content Include="Content\images\logos\icons8-country-100.png" />
+    <Content Include="Content\images\logos\icons8-database-restore-64.png" />
+    <Content Include="Content\images\logos\icons8-advertisement-page-100.png" />
+    <Content Include="Content\images\logos\icons8-city-buildings-100.png" />
+    <Content Include="Content\images\logos\icons8-database-restore-100.png" />
+    <Content Include="Content\images\logos\icons8-link-100.png" />
+    <Content Include="Content\images\logos\icons8-type-100.png" />
+    <Content Include="Content\images\logos\icons8-unknown-status-100.png" />
+    <Content Include="Content\images\logos\icons8-user-male-100.png" />
     <Content Include="Content\Style.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\1.jpg" />
@@ -165,6 +174,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup1.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdvertisementController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\DistrictController.cs" />
@@ -275,6 +285,7 @@
     <Content Include="Views\FooterLink\Edit.cshtml" />
     <Content Include="Views\FooterLink\Index.cshtml" />
     <Content Include="Views\FooterLink\getfooterlink.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
