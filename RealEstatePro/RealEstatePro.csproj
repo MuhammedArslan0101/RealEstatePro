@@ -168,6 +168,7 @@
     <Compile Include="Controllers\AdvertisementController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\DistrictController.cs" />
+    <Compile Include="Controllers\FooterLinkController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NeighborhoodController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Models\DataInitializer.cs" />
     <Compile Include="Models\District.cs" />
     <Compile Include="Models\EditProfile.cs" />
+    <Compile Include="Models\FooterLink.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Neighborhood.cs" />
     <Compile Include="Models\Register.cs" />
@@ -268,6 +270,11 @@
     <Content Include="Views\Type\StatusName2.cshtml" />
     <Content Include="Views\Status\Status.cshtml" />
     <Content Include="Views\Home\StatusList.cshtml" />
+    <Content Include="Views\FooterLink\Create.cshtml" />
+    <Content Include="Views\FooterLink\Details.cshtml" />
+    <Content Include="Views\FooterLink\Edit.cshtml" />
+    <Content Include="Views\FooterLink\Index.cshtml" />
+    <Content Include="Views\FooterLink\getfooterlink.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -277,6 +284,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

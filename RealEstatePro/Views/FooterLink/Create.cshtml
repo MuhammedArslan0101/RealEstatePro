@@ -1,0 +1,178 @@
+﻿@model RealEstatePro.Models.FooterLink
+
+@{
+    ViewBag.Title = "Create";
+}
+
+    <div class="container">
+
+        <div class="row">
+            <!--Filtreleme-->
+            <div class="col-md-3">
+                <br />
+                <!--Filtreleme-->
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">En Az </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="En Az(fiyat)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">En Cok </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="En Cok(fiyat)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Şehir </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="Şehir">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Semt </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="Semt">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Mahalla </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="Mahalla">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Durum </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="Durum">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label">Tip </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" palceholder="Tip">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label"> </label>
+                        <div class="col-sm-6">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Filitreleme</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+
+
+            <br />
+            <div class="col-md-9">
+                <div class="thumbnail" style="width:845px">
+
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"> <a href="/Admin/Index"> Admin Panel</a></li>
+                            <li class="breadcrumb-item"> <a href="/FooterLink/index"> Footer Link List</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Add Links</li>
+                        </ol>
+                    </nav>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <h4>FooterLink</h4>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.facebook, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.facebook, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.facebook, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.twitter, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.twitter, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.twitter, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.instagram, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.instagram, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.instagram, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.youtube, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.youtube, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.youtube, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.googlemap, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.googlemap, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.googlemap, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.telephone, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.telephone, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.telephone, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.adres, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.adres, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.adres, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.whataspp, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.whataspp, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.whataspp, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>

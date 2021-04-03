@@ -1,0 +1,71 @@
+﻿@model IEnumerable<RealEstatePro.Models.FooterLink>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+
+    <div class="row">
+        <!--Filtreleme-->
+     
+
+
+
+        <br />
+        <div class="col-md-12">
+            <div class="thumbnail" style="width:1000px">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"> <a href="/Admin/Index"> Admin Panel</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Footer Link List</li>
+                    </ol>
+                </nav>
+
+                <a class="btn btn-primary btn-block" href="@Url.Action("Create")"> Add Links</a>
+
+                <table class="table table-striped" style="word-wrap: break-word;">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.facebook)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.twitter)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.instagram)
+                        </th>
+                     
+
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.facebook)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.twitter)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.instagram)
+                    </td>
+                
+
+                    <td>
+                        <a class="btn btn-warning" href="@Url.Action("Edit", new { id = item.FooterId })"><i class="fa fa-edit"></i> Edit</a>
+                        <a class="btn btn-success" href="@Url.Action("Details", new { id = item.FooterId })"> <i class="fa fa-info-circle"></i> Details</a>
+                    </td>
+                </tr>
+                    }
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

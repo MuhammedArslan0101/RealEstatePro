@@ -21,6 +21,8 @@ namespace RealEstatePro.Models
         public DbSet<Advertisement> Advertisements { get; set; }
         public DbSet<AdvPhoto> AdvPhotos { get; set; }
 
+        public DbSet<FooterLink> foterLinks { get; set; }
+
 
 
     }
