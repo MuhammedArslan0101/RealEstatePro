@@ -14,7 +14,7 @@ namespace RealEstatePro.Controllers
     public class TypeController : Controller
     {
         private DataContext db = new DataContext();
-
+        [Authorize(Roles = "admin")]
         // GET: Type
         public ActionResult Index()
         {
@@ -45,7 +45,7 @@ namespace RealEstatePro.Controllers
             return PartialView(statustip2);
 
         }
-
+        [Authorize(Roles = "admin")]
         // GET: Type/Details/5
         public ActionResult Details(int? id)
         {
@@ -60,14 +60,14 @@ namespace RealEstatePro.Controllers
             }
             return View(type);
         }
-
+        [Authorize(Roles = "admin")]
         // GET: Type/Create
         public ActionResult Create()
         {
             ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "StatusName");
             return View();
         }
-
+        [Authorize(Roles = "admin")]
         // POST: Type/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -85,7 +85,7 @@ namespace RealEstatePro.Controllers
             ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "StatusName", type.StatusId);
             return View(type);
         }
-
+        [Authorize(Roles = "admin")]
         // GET: Type/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -101,7 +101,7 @@ namespace RealEstatePro.Controllers
             ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "StatusName", type.StatusId);
             return View(type);
         }
-
+        [Authorize(Roles = "admin")]
         // POST: Type/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -118,7 +118,7 @@ namespace RealEstatePro.Controllers
             ViewBag.StatusId = new SelectList(db.Statuses, "StatusId", "StatusName", type.StatusId);
             return View(type);
         }
-
+        [Authorize(Roles = "admin")]
         // GET: Type/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -133,7 +133,7 @@ namespace RealEstatePro.Controllers
             }
             return View(type);
         }
-
+        [Authorize(Roles = "admin")]
         // POST: Type/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

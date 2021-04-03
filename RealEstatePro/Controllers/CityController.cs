@@ -10,6 +10,7 @@ using RealEstatePro.Models;
 
 namespace RealEstatePro.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class CityController : Controller
     {
         private DataContext db = new DataContext();
