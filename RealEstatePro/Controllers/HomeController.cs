@@ -25,6 +25,63 @@ namespace RealEstatePro.Controllers
             return View(adv.ToList());
         }
 
+        public PartialViewResult PartialFilter()
+        {
+            ViewBag.citylist = new SelectList(CityGet(), "CityId", "CityName");
+            ViewBag.statuslist = new SelectList(statusGet(), "StatusId", "StatusName");
+            return PartialView();
+
+        }
+        public ActionResult Filter(int? min , int? max , int? cityid , int? districtid , int? nghdid , int?  stautsid , int? typeid )
+        {
+            var imgs = db.AdvPhotos.ToList();
+            ViewBag.imgs = imgs;
+            var filter = db.Advertisements.Where(x => x.Price >= min || x.Price <= max
+            || x.CityId == cityid
+            || x.DistrictId == districtid
+            || x.NeighborhoodId == nghdid
+            || x.StatusId == stautsid
+            || x.TypeId == typeid).Include(m => m.Neighborhood).Include(e => e.Type).ToList();
+
+            return View(filter);
+
+        }
+        public List<City> CityGet()
+        {
+            List<City> cities = db.Cities.ToList();
+            return cities;
+        }
+        public ActionResult DistrictGet(int CityId)
+        {
+            List<District> districtlist = db.Districts.Where(x => x.CityId == CityId).ToList();
+            ViewBag.districtListesi = new SelectList(districtlist, "DistrictId", "DistrictName");
+
+            return PartialView("DistrictPartial");
+        }
+
+        public ActionResult NgbhdGet(int districtid)
+        {
+            List<Neighborhood> neighborhoodlist = db.Neighborhoods.Where(x => x.DistrictId == districtid).ToList();
+            ViewBag.nghbdlistesi = new SelectList(neighborhoodlist, "NeighborhoodId", "NeighborhoodName");
+
+            return PartialView("NgbhdPartial");
+        }
+
+        public List<Status> statusGet()
+        {
+            List<Status> statuses = db.Statuses.ToList();
+            return statuses;
+        }
+        public ActionResult typeGet(int statusid)
+        {
+            // because status sub table of Type 
+            List<Models.Type> typelist = db.Types.Where(x => x.StatusId == statusid).ToList();
+            ViewBag.typelistesi = new SelectList(typelist, "TypeId", "TypeName");
+
+
+            return PartialView("TypePartial");
+        }
+
         public ActionResult Search(string s)
         {
             var imgs = db.AdvPhotos.ToList();
