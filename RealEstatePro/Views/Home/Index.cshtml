@@ -73,6 +73,19 @@
                             }
 
                         }
+                        @foreach (var rsm in ViewBag.imgs)
+                        {
+                            if (rsm.AdvId != item.AdvId)
+                            {
+                                if (@c == 1)
+                                {
+                                    <a href="/Home/Details/@item.AdvId">  <img src="~/Content/images/brown.png" alt="..." style="height:300px;"></a>
+                                    c++;
+                                }
+
+                            }
+
+                        }
 
                         <div class="caption">
                             <p><strong>@item.Type.Status.StatusName</strong> (@item.Type.TypeName) </p>
