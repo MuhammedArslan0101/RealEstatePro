@@ -22,6 +22,19 @@ namespace RealEstatePro.Controllers
             return View(types.ToList());
         }
 
+        public PartialViewResult StutsTip1()
+        {
+            var statustip1 = db.Types.Where(i => i.StatusId == 1).ToList();
+            return PartialView(statustip1);
+
+        }
+        public PartialViewResult StutsTip2()
+        {
+            var statustip2 = db.Types.Where(i => i.StatusId == 2).ToList();
+            return PartialView(statustip2);
+
+        }
+
         // GET: Type/Details/5
         public ActionResult Details(int? id)
         {

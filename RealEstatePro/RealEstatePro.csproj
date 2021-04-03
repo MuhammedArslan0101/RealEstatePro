@@ -261,6 +261,9 @@
     <Content Include="Views\Shared\SearchPartial.cshtml" />
     <Content Include="Views\Home\PartialFilter.cshtml" />
     <Content Include="Views\Home\Filter.cshtml" />
+    <Content Include="Views\Home\MenuFilter.cshtml" />
+    <Content Include="Views\Type\StutsTip1.cshtml" />
+    <Content Include="Views\Type\StutsTip2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

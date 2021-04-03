@@ -25,6 +25,14 @@ namespace RealEstatePro.Controllers
             return View(adv.ToList());
         }
 
+        public ActionResult MenuFilter(int id)
+        {
+            var imgs = db.AdvPhotos.ToList();
+            ViewBag.imgs = imgs;
+            var filter = db.Advertisements.Where(i => i.TypeId ==id).Include(m => m.Neighborhood).Include(e => e.Type).ToList();
+            return View(filter);
+        }
+
         public PartialViewResult PartialFilter()
         {
             ViewBag.citylist = new SelectList(CityGet(), "CityId", "CityName");
