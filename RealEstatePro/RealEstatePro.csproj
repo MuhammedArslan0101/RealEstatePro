@@ -264,6 +264,8 @@
     <Content Include="Views\Home\MenuFilter.cshtml" />
     <Content Include="Views\Type\StutsTip1.cshtml" />
     <Content Include="Views\Type\StutsTip2.cshtml" />
+    <Content Include="Views\Type\StatusName1.cshtml" />
+    <Content Include="Views\Type\StatusName2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
