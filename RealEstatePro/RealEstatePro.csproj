@@ -286,6 +286,7 @@
     <Content Include="Views\FooterLink\Index.cshtml" />
     <Content Include="Views\FooterLink\getfooterlink.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\AdvListesi.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
