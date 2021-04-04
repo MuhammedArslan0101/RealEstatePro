@@ -47,21 +47,19 @@
             </div>
 
         </div>
-
-
-        <div class="row">
+              <div class="row">
             <!--Filtreleme-->
             @Html.Action("PartialFilter", "Home")
 
             <!--ilan kısım-->
 
             <br />
-
+           
             @foreach (var item in Model)
             {
                 var c = 1;
                 <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
+                   <div class="thumbnail">
                         @foreach (var rsm in ViewBag.imgs)
                         {
                             if (rsm.AdvId == item.AdvId)
@@ -112,7 +110,11 @@
 
 
         </div>
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        <div style="padding-left:50px;">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+       
     </div>
 

@@ -23,7 +23,7 @@ namespace RealEstatePro.Controllers
 
             var adv = db.Advertisements.Include(m => m.Neighborhood).Include(e => e.Type).OrderByDescending(i => i.AdvId); ;
             ModelState.Clear();
-            return View(adv.ToList().ToPagedList(page ,2));
+            return View(adv.ToList().ToPagedList(page ,4));
         }
 
         public ActionResult StatusList( int id)
