@@ -1,4 +1,6 @@
-﻿@model IEnumerable<RealEstatePro.Models.Advertisement>
+﻿@model PagedList<RealEstatePro.Models.Advertisement>
+@using PagedList;
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
 }
@@ -20,7 +22,7 @@
                 </div>
             </div>
         </div>*@
-        <br/>
+        <br />
         <div class="row">
             <!--slider-->
             <div class="col-md-12">
@@ -49,7 +51,7 @@
 
         <div class="row">
             <!--Filtreleme-->
-           @Html.Action("PartialFilter" ,"Home")
+            @Html.Action("PartialFilter", "Home")
 
             <!--ilan kısım-->
 
@@ -110,6 +112,7 @@
 
 
         </div>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 
     </div>
 

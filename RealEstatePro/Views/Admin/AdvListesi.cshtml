@@ -1,100 +1,105 @@
-﻿@model IEnumerable<RealEstatePro.Models.Advertisement>
+﻿@model PagedList<RealEstatePro.Models.Advertisement>
+@using PagedList;
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "AdvListesi";
 }
-  
-
-    <div class="container">
-
-        <div class="row">
-            <!--Filtreleme-->
-            @Html.Action("PartialFilter", "Home")
 
 
+<div class="container">
+
+    <div class="row">
+        <!--Filtreleme-->
+        @Html.Action("PartialFilter", "Home")
 
 
-            <br />
-            <div class="col-md-9">
-                <div class="thumbnail" style="width:845px">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"> <a href="/Admin/Index"> Admin Page </a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Website Advertisment List</li>
-                        </ol>
-                    </nav>
 
-                    <a class="btn btn-primary btn-block" href="@Url.Action("Create")"> Add AD</a>
-                    <br />
-                    <table class="table table-striped">
 
+        <br />
+        <div class="col-md-9">
+            <div class="thumbnail" style="width:845px">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"> <a href="/Admin/Index"> Admin Page </a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Website Advertisment List</li>
+                    </ol>
+                </nav>
+
+                <a class="btn btn-primary btn-block" href="@Url.Action("Create")"> Add AD</a>
+                <br />
+                <table class="table table-striped">
+
+                    <tr>
+                        <th>
+                            User Name
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            User Name
+                        </th>
+
+                        <th>
+                            City Name
+                        </th>
+
+                        <th>
+                            District Name
+                        </th>
+                        <th>
+                            Neghod Name
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
                         <tr>
-                            <th>
-                                User Name
-                            </th>
-                            <th>
-                                Status
-                            </th>
-                            <th>
-                                User Name
-                            </th>
+                            <td>
+                                <button type="button" class="btn btn-primary"><span class="cib-dribbble btn-icon mr-2"></span> @item.UserName</button>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Type.Status.StatusName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Neighborhood.District.City.CityName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Neighborhood.District.DistrictName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Neighborhood.NeighborhoodName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Type.TypeName)
+                            </td>
+                            <td>
+                                <form class="btn btn-sm">
+                                    @*<a class="btn btn-success" href="@Url.Action("Images", new { id = item.AdvId })"><i class="fa fa-edit"></i>Add İmg</a>
+                            <a class="btn btn-primary " href="@Url.Action("Edit", new { id = item.AdvId })"><i class="fa fa-edit"></i> Edit</a>*@
+                                    <a class="btn btn-danger" href="@Url.Action("Delete","Advertisement", new { id = item.AdvId })">  <i class="fa fa-trash"></i> Delete</a>
+                                    @*<a class="btn btn-success " href="@Url.Action("Details", new { id = item.AdvId })"> <i class="fa fa-info-circle"></i> Details</a>*@
+                                </form>
+                            </td>
 
-                            <th>
-                                City Name
-                            </th>
-
-                            <th>
-                                District Name
-                            </th>
-                            <th>
-                                Neghod Name
-                            </th>
-                            <th>
-                                Type
-                            </th>
-                            <th></th>
                         </tr>
-
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    <button type="button" class="btn btn-primary"><span class="cib-dribbble btn-icon mr-2"></span> @item.UserName</button>
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Type.Status.StatusName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.UserName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Neighborhood.District.City.CityName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Neighborhood.District.DistrictName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Neighborhood.NeighborhoodName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Type.TypeName)
-                                </td>
-                                <td>
-                                    <form class="btn btn-sm">
-                                        @*<a class="btn btn-success" href="@Url.Action("Images", new { id = item.AdvId })"><i class="fa fa-edit"></i>Add İmg</a>
-                                    <a class="btn btn-primary " href="@Url.Action("Edit", new { id = item.AdvId })"><i class="fa fa-edit"></i> Edit</a>*@
-                                        <a class="btn btn-danger" href="@Url.Action("Delete","Advertisement", new { id = item.AdvId })">  <i class="fa fa-trash"></i> Delete</a>
-                                        @*<a class="btn btn-success " href="@Url.Action("Details", new { id = item.AdvId })"> <i class="fa fa-info-circle"></i> Details</a>*@
-                                    </form>
-                                </td>
-
-                            </tr>
-                        }
-
-                    </table>
+                    }
 
 
-                </div>
+                </table>
+
+                @Html.PagedListPager(Model, page => Url.Action("AdvListesi", new { page }))
             </div>
         </div>
 
+       
     </div>
+
+</div>

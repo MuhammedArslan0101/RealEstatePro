@@ -5,7 +5,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using PagedList;
+using PagedList.Mvc;
 
 namespace RealEstatePro.Controllers
 {
@@ -15,14 +16,14 @@ namespace RealEstatePro.Controllers
 
 
         // GET: Home
-         public ActionResult Index()
+         public ActionResult Index(int page = 1)
         {
             var imgs = db.AdvPhotos.ToList();
             ViewBag.imgs = imgs;
 
             var adv = db.Advertisements.Include(m => m.Neighborhood).Include(e => e.Type).OrderByDescending(i => i.AdvId); ;
             ModelState.Clear();
-            return View(adv.ToList());
+            return View(adv.ToList().ToPagedList(page ,2));
         }
 
         public ActionResult StatusList( int id)

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using PagedList;
+using PagedList.Mvc;
 namespace RealEstatePro.Controllers
 {
     [Authorize(Roles ="admin")]
@@ -17,11 +19,11 @@ namespace RealEstatePro.Controllers
             return View();
         }
 
-        public ActionResult AdvListesi()
+        public ActionResult AdvListesi(int page =1 )
         {
             var ads = db.Advertisements.Include(i => i.Neighborhood).Include(i => i.Type).ToList();
 
-            return View(ads);
+            return View(ads.ToPagedList(page , 2));
         }
 
     }
